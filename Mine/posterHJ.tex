@@ -1,0 +1,376 @@
+%%
+%% This is file `tikzposter-template.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% tikzposter.dtx  (with options: `tikzposter-template.tex')
+%%
+%% This is a generated file.
+%%
+%% Copyright (C) 2014 by Pascal Richter, Elena Botoeva, Richard Barnard, and Dirk Surmann
+%%
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 2.0 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%%
+%% http://www.latex-project.org/lppl.txt
+%%
+%% and version 2.0 or later is part of all distributions of
+%% LaTeX version 2013/12/01 or later.
+%%
+
+
+\documentclass{tikzposter} %Options for format can be included here
+
+\usepackage{todonotes}
+
+\usepackage[tikz]{bclogo}
+\usepackage{lipsum}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[absolute]{textpos}
+\usepackage[it]{subfigure}
+\usepackage{graphicx}
+\usepackage{cmbright}
+%\usepackage[default]{cantarell}
+%\usepackage{avant}
+%\usepackage[math]{iwona}
+\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+%% add your packages here
+\usepackage{hyperref}
+% for random text
+\usepackage{lipsum}
+\usepackage[english]{babel}
+\usepackage[pangram]{blindtext}
+
+\colorlet{backgroundcolor}{blue!10}
+
+ % Title, Author, Institute
+\title{San Francisco Crime Classification}
+\author{Jia Huang}
+\institute{$^1$ Xi'an Shiyou University, China \\
+}
+%\titlegraphic{logos/tulip-logo.eps}
+
+%Choose Layout
+\usetheme{Wave}
+
+%\definebackgroundstyle{samplebackgroundstyle}{
+%\draw[inner sep=0pt, line width=0pt, color=red, fill=backgroundcolor!30!black]
+%(bottomleft) rectangle (topright);
+%}
+%
+%\colorlet{backgroundcolor}{blue!10}
+
+\begin{document}
+
+
+\colorlet{blocktitlebgcolor}{blue!23}
+
+ % Title block with title, author, logo, etc.
+\maketitle
+
+\begin{columns}
+ % FIRST column
+\column{0.5}% Width set relative to text width
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+ %\block{Main Objectives}{
+%  	      	\begin{enumerate}
+%  	      	\item Formalise research problem by extending \emph{outlying aspects mining}
+%  	      	\item Proposed \emph{GOAM} algorithm is to solve research problem
+%  	      	\item Utilise pruning strategies to reduce time complexity
+%  	      	\end{enumerate}
+%%  	      \end{minipage}
+%}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Introduction}{
+  San Francisco was infamous for housing some of the world's most notorious criminals on 
+  the inescapable island of Alcatraz. Today, the city is known more for its tech scene than 
+  its criminal past. From Sunset to SOMA, and Marina to Excelsior, this project analyzes 12
+   years of crime reports from across all of San Francisco's neighborhoods to create a model 
+   that predicts the category of crime that occurred, given time and location.
+  
+  	\begin{description}
+    \item[The Dataset]  is in a tabular form and includes chronological, geographical and
+     text data and contains incidents derived from the SFPD Crime Incident Reporting system.
+  	
+    \item[Data Visualization] is the main method designed in this project. 
+    Through data visualization, the data set we will present will finally be visualized and
+     the understanding of the data will be more direct.
+  
+  	\end{description}
+
+    The main task of this project is to make a prediction of the type, time and place of crime
+     in San Francisco. In this article, we will give an overview of the whole project from data 
+     sets, eigenvalues, feature item selection, modeling and conclusion.
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{The Dataset}{
+  The data ranges from \emph{1/1/2003 to 5/13/2015} creating a training dataset with nine 
+  features and 878,049 samples.
+\begin{itemize}
+    %\emph{Group Outlying Aspects Mining}
+
+    \item
+    \emph{Dates - timestamp of the crime incident}
+    \item
+    \emph{ Category - category of the crime incident. (This is our target variable.)} and
+    \item 
+    \emph{  Descript - detailed description of the crime incident}
+    \item 
+    \emph{  DayOfWeek - the day of the week}
+    \item 
+    \emph{ PdDistrict - the name of the Police Department District}
+    \item 
+    \emph{ Resolution - The resolution of the crime incident}
+    \item 
+    \emph{Address - the approximate street address of the crime incident }
+    \item 
+    \emph{X - Longitude}
+    \item 
+    \emph{Y - Latitude}
+  \end{itemize}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+%\note{Note with default behavior}
+
+%\note[targetoffsetx=12cm, targetoffsety=-1cm, angle=20, rotate=25]
+%{Note \\ offset and rotated}
+
+ % First column - second block
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Feature Item}{
+  The dataset contains 2,323 duplicates that are meaningless 
+  and should be deleted.We will also use coordinates to calculate the 
+  distribution of data points on the map of San Francisco.At the same time, 
+  67 incorrect locations were found.
+  \\
+ \vspace{.5cm}
+  \centering
+  \begin{tabular}{ c | c  }
+    \toprule
+   Datas                & datetime64    \\
+    \toprule
+   Category             & object  \\
+   \toprule
+   Descript             & object    \\
+   \toprule
+   DayOfWeek            &object     \\
+   \toprule
+   PdDistrict           & object \\
+   \toprule
+   Resolution            &object    \\
+   \toprule
+   Address              & object    \\
+   \toprule
+   x          & float64    \\
+   \toprule
+   Y        & float64       \\
+    \bottomrule
+\end{tabular}
+\vspace{.2cm}
+  \begin{description}
+  
+    \item[Dates \& Day of the week]
+    These variables are distributed uniformly between 1/1/2003 
+    to 5/13/2015 (and Monday to Sunday) and split between the training 
+    and the testing dataset as mentioned before. We did not notice any 
+    anomalies on these variables.
+    The median frequency of incidents is 389 per day with a standard deviation
+     of 48.51.
+     \\
+    \item [Per Week]
+    Also, there is no significant deviation of incidents frequency throughout 
+    the week. Thus we do not expect this variable to play a significant role 
+    in the prediction.
+    \\
+    
+   
+  \end{description}
+ 
+  	
+%    1) Group Feature Extraction,
+%    2) Outlying Degree Scoring, and
+%    3) Outlying Aspects Identification.
+		
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+% SECOND column
+\column{0.5}
+ %Second column with first block's top edge aligned with with previous column's top.
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Feature Item}{
+\begin{description}
+  \item [Category]
+    There are 39 discrete categories that the police department file the 
+    incidents with the most common being Larceny/Theft (19.91\%), Non/Criminal
+     (10.50\%), and Assault(8.77\%).
+     \\
+  \item [Police District]
+  There are significant differences between the different districts of the 
+  City with the Southern district having the most incidents (17.87\%) 
+  followed by Mission (13.67\%) and Northern (12.00\%).
+  \\
+  \item [X - Longitude Y - Latitude]We have tested that the coordinates 
+    belong inside the boundaries of the city. Although longitude does not 
+    contain any outliers, latitude includes some 90o values which correspond 
+    to the North Pole.
+    \\
+    \item [Address]as a text field, requires advanced techniques to use it for 
+    the prediction. Instead in this project, we will use it to extract if the 
+    incident has happened on the road or in a building block.
+\end{description}
+
+\begin{tikzfigure}%[Overall architecture of \emph{GOAM} algorithm]
+    \missingfigure[figcolor=white]{Testing figcolor}
+\end{tikzfigure}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+% Second column - first block
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block[titleleft]{Data Visualization}
+{
+  Based on the Project’s statement, we need to predict the probability
+   of each type of crime based on time and location. That being said, 
+   we present two diagrams to visualize the importance of these variables. 
+   The first one presents the geographic density of 9 random crime
+    categories. We can see that although the epicenter of most of the 
+    crimes resides on the northeast of the city, each crime has a different 
+    density on the rest of the city. This fact is a reliable indication
+     that the location ( coordinates / Police District) will be a significant
+      factor for the analysis and the forecasting.
+\vspace{.5cm}
+
+\vspace{.2cm}
+\begin{description}
+    \item
+    The diagram presents the average number of incidents per
+     hour for five of the crimes' categories. 
+    It is evident that different crimes have different frequency 
+    during different times of the day. Some examples are that 
+    prostitution picks during the evening and all through the night, Gambling incidents start late at night until the morning and Burglary picks early in the morning until the afternoon. As before these are sharp pieces of evidence that the time parameters will have a significant role also.
+\end{description}
+
+
+\vspace{.5cm}     
+\begin{minipage}{0.5\linewidth}
+    \centering
+    \begin{tikzfigure}
+    \missingfigure[figcolor=white]{Testing figcolor}
+
+    {\small{New Orleans Pelicans on FT\%}}
+    \end{tikzfigure}%
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    \centering
+    \begin{tikzfigure}
+    \missingfigure[figcolor=white]{Testing figcolor}
+
+    {\small{New Orleans Pelicans on FTA}}
+    \end{tikzfigure}%
+\end{minipage}
+\vspace{.2cm}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+% Second column - second block
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block[titlewidthscale=1, bodywidthscale=1]
+{Conclusion}
+{
+\begin{description}
+  \item[Problem Definition]
+  To examine the specific problem, we will apply a full Data Science life cycle composed of the six steps.
+  \\
+  In this paper, we did not complete the design of this project in 
+  strict accordance with the whole journey, but through the 
+  main data visualization, we understand and analyze the data set provided visually, which is a great progress.
+\end{description}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+% Bottomblock
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\colorlet{notebgcolor}{blue!20}
+\colorlet{notefrcolor}{blue!20}
+\note[targetoffsetx=8cm, targetoffsety=-4cm, angle=30, rotate=15,
+radius=2cm, width=.26\textwidth]{
+Acknowledgement
+\begin{itemize}
+    \item
+    International Cooperation Project (Y7Z0511101)
+    of IIE,
+    Chinese Academy of Sciences
+ \end{itemize}
+}
+
+%\note[targetoffsetx=8cm, targetoffsety=-10cm,rotate=0,angle=180,radius=8cm,width=.46\textwidth,innersep=.1cm]{
+%Acknowledgement
+%}
+
+%\block[titlewidthscale=0.9, bodywidthscale=0.9]
+%{Acknowledgement}{
+%}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+\end{columns}
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+%[titleleft, titleoffsetx=2em, titleoffsety=1em, bodyoffsetx=2em,%
+%roundedcorners=10, linewidth=0mm, titlewidthscale=0.7,%
+%bodywidthscale=0.9, titlecenter]
+
+%\colorlet{noteframecolor}{blue!20}
+\colorlet{notebgcolor}{blue!20}
+\colorlet{notefrcolor}{blue!20}
+\note[targetoffsetx=-13cm, targetoffsety=-12cm,rotate=0,angle=180,radius=8cm,width=.96\textwidth,innersep=.4cm]
+{
+\begin{minipage}{0.3\linewidth}
+\centering
+\includegraphics[width=24cm]{logos/tulip-wordmark.eps}
+\end{minipage}
+\begin{minipage}{0.7\linewidth}
+{ \centering
+ The $11^{th}$ International Conference on Knowledge Science,
+  Engineering and Management (KSEM 2018),
+  17-19/08/2018, Changchun, China
+}
+\end{minipage}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+\end{document}
+
+%\endinput
+%%
+%% End of file `tikzposter-template.tex'.

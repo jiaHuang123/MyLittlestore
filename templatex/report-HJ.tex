@@ -1,0 +1,71 @@
+\documentclass{amsart}
+\synctex=1
+
+%=================================================================
+% 
+\newcount\DraftStatus  % 0 suppresses notes to selves in text
+\DraftStatus=1   % TODO: set to 0 for final version
+%=================================================================
+
+%=================================================================
+\usepackage{comment}
+%=================================================================
+%
+\includecomment{JournalOnly}  
+\includecomment{ConferenceOnly}  
+\includecomment{TulipStyle}
+%
+%=================================================================
+\input{preamble}
+
+
+%=================================================================
+%
+\begin{document}
+%
+%=================================================================
+%
+\title[A Short Running Title]{ San Francisco Crime Classification}%
+
+\author{ZhangTao Xue}
+\address[A.~1]{School of Computer Science,\\ 
+Xi'an Shiyou University, Shaanxi 710065, China}%
+\email[A.~1]{xxx@tulip.academy}
+
+
+%\thanks{Thanks to \ldots}%
+\subjclass{Artificial Intelligence}%
+\keywords{Deep learning, film, business income}%
+\date{\gitAuthorDate}%
+
+\begin{abstract}
+    San Francisco is notorious because some of the world's most notorious
+    criminals live on the inescapable Island of Alcatraz.Today, the city 
+    is better known for its tech scene than its criminal history.From 
+    Sunset to SOMA, Marina to Excelsior, the project analyzed crime reports 
+    from all San Francisco neighborhoods over a 12-year period, visualizing 
+    the data ina more intuitive and concise way, and creating a model 
+    that predicted the type of crime that would occur at a given time
+    and place.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\newpage
+%=================================================================
+
+\input{mainbody}
+
+% ----------------------------------------------------------------
+\newpage
+\bibliography{tuliplab,yourbib}
+% TODO: you should change this yourbib into a proper bib file name
+
+\bibliographystyle{plainnat}
+%=================================================================
+
+\listoftodos
+
+\end{document}
+

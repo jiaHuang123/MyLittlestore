@@ -1,0 +1,8 @@
+\babel@toc {english}{}
+\contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Data Processing}}{2}{section.2}%
+\contentsline {section}{\tocsection {}{3}{Exploratory Visualization}}{4}{section.3}%
+\contentsline {section}{\tocsection {}{4}{Methodology}}{5}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Algorithms and Techniques}}{6}{section.5}%
+\contentsline {section}{\tocsection {}{6}{Conclusions}}{6}{section.6}%
+\contentsline {section}{List of Todos}{7}{section*.3}%

@@ -1,0 +1,352 @@
+%%
+%% This is file `tikzposter-template.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% tikzposter.dtx  (with options: `tikzposter-template.tex')
+%%
+%% This is a generated file.
+%%
+%% Copyright (C) 2014 by Pascal Richter, Elena Botoeva, Richard Barnard, and Dirk Surmann
+%%
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 2.0 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%%
+%% http://www.latex-project.org/lppl.txt
+%%
+%% and version 2.0 or later is part of all distributions of
+%% LaTeX version 2013/12/01 or later.
+%%
+
+
+\documentclass{tikzposter} %Options for format can be included here
+
+\usepackage{todonotes}
+
+\usepackage[tikz]{bclogo}
+\usepackage{lipsum}
+\usepackage{amsmath}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[absolute]{textpos}
+\usepackage[it]{subfigure}
+\usepackage{graphicx}
+\usepackage{cmbright}
+%\usepackage[default]{cantarell}
+%\usepackage{avant}
+%\usepackage[math]{iwona}
+\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
+
+
+%% add your packages here
+\usepackage{hyperref}
+% for random text
+\usepackage{lipsum}
+\usepackage[english]{babel}
+\usepackage[pangram]{blindtext}
+
+\colorlet{backgroundcolor}{blue!10}
+
+ % Title, Author, Institute
+\title{Box office forecast}
+\author{Zhangtao Xue}
+\institute{Xi'an Shiyou University	}
+
+%\titlegraphic{logos/tulip-logo.eps}
+
+%Choose Layout
+\usetheme{Wave}
+
+%\definebackgroundstyle{samplebackgroundstyle}{
+%\draw[inner sep=0pt, line width=0pt, color=red, fill=backgroundcolor!30!black]
+%(bottomleft) rectangle (topright);
+%}
+%
+%\colorlet{backgroundcolor}{blue!10}
+
+\begin{document}
+
+
+\colorlet{blocktitlebgcolor}{blue!23}
+
+ % Title block with title, author, logo, etc.
+\maketitle
+
+\begin{columns}
+ % FIRST column
+\column{0.5}% Width set relative to text width
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+ %\block{Main Objectives}{
+%  	      	\begin{enumerate}
+%  	      	\item Formalise research problem by extending \emph{outlying aspects mining}
+%  	      	\item Proposed \emph{GOAM} algorithm is to solve research problem
+%  	      	\item Utilise pruning strategies to reduce time complexity
+%  	      	\end{enumerate}
+%%  	      \end{minipage}
+%}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Introduction}{
+  Deep learning has been studied in many research fields, such as image recognition, natural language processing and prediction system. In short, deep learning is a new field in machine learning. Its motivation is to build and simulate the neural network of human brain for analytical learning. It imitates the mechanism of human brain to interpret data.\\
+  In this study, we take out several key factors that affect the final business income, such as early investment, popularity, time and so on, and build a two-layer neural network to predict the film revenue. Then these key values are put into the neural network as feature input, and then the back propagation of BF neural network is used to update the weights, and finally the prediction model is obtained.\\
+  This paper aims at the existing methods to solve the practical problems of the film industry, so that the film industry can use the effective data to predict the possible revenue of making a film. The experimental results show that using neural network to solve the film revenue is a very desirable method.
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Related Work}{
+    \begin{itemize}
+        \item
+        %\emph{Group Outlying Aspects Mining}
+        Data download: the data source is directly downloaded and used from the kaggle project.
+
+        
+        \item
+        %\emph{Group Outlying Aspects Mining}
+        Data download: the data source is directly downloaded and used from the kaggle project.
+    
+        \item
+        \emph{the impact of previous investment on the film},
+        \emph{the relationship between the popularity and the business income} 
+        \emph{the relationship between the runtim and the business income} 
+        \emph{the relationship between the time and the business income} 
+    \end{itemize}
+    
+
+
+
+
+
+    \begin{center}
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/21.eps}
+       
+        {\small{Download dataset display from kaggle}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/24.eps}
+    
+        {\small{Remove the data that has little influence on the weight}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/4.eps}
+        
+        {\small{The relationship between time and business income}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/22.eps}
+        
+        {\small{Relationship between runtime and business income}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/25.eps}
+        
+        {\small{ The relationship between the prophase investment and business income of films}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/26.eps}
+        
+        {\small{The relationship between popularity and business income}}
+        \end{tikzfigure}%
+        \end{minipage}
+    \end{center}
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+%\note{Note with default behavior}
+
+%\note[targetoffsetx=12cm, targetoffsety=-1cm, angle=20, rotate=25]
+%{Note \\ offset and rotated}
+
+ % First column - second block
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Methodology}{
+    In this section, we will introduce our methodology framework. \\
+    We use a three-layer neural network. There are 64 neurons in the first layer, 64 neurons in the second layer, and 1 neuron in the last layer,            Finally, the cost function is selected as the square difference, and the design figure Flag.1
+%    1) Group Feature Extraction,
+%    2) Outlying Degree Scoring, and
+%    3) Outlying Aspects Identification.
+  	
+\begin{center}
+    \begin{minipage}{0.3\linewidth}
+    \centering
+    \begin{tikzfigure}
+    \includegraphics[width=0.9\textwidth]{logos/7.eps}
+   
+    {\small{Flag.1}}
+    \end{tikzfigure}%
+    \end{minipage}
+    \hfill
+\end{center}
+From the data analysis, we select several parameters which have the greatest impact on the business income as X. the weights of the first layer of neural network are W1 and bias value B1, the weight of the second layer of neural network is W2 and bias value B1, and the third layer of neural network W3 and bias value B1. \\
+The first layer of neural network is: Z1 = relu (w1x + B1) \\
+The second layer neural network is: Z2 = relu (w2z1 + B1) \\
+The second layer neural network is: Z3 = relu (w3z2 + B1) \\
+We get W1, W2 and W3 by neural network updating. 
+
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+\column{0.5}
+% SECOND column
+
+ %Second column with first block's top edge aligned with with previous column's top.
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+% Second column - first block
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block{Experiments}{
+    \item[Dataset:]
+    We downloaded data sets from the kaggle project,including test sets (including 3000 data sets) and training sets (1000 data sets). The dataset contains budget, genre, home page, IMDB_ ID, original language, original title, overview, popularity, poster path, production company, production country, release date, running time, spoken language, status, slogan, title, keywords, actors, staff, etc. Delete the weights that are not important or have little impact on the dataset, leaving only the feature values with large weight influence, such as budget, release date, running time, popularity, etc. 
+    \item[Hyper-parameter Settings:]
+    The training model of this neural network has three layers. The corresponding weights are W1, W2 and W3. The cost function is designed as mean square error, learning rate Le = 0.01, update times 200, each time 200 data.
+    \item[Overall Performance:]
+    \\
+    (1) The update rate of cost function is the cost function of mean square error. We can clearly see that after 10 times of updating, the loss value of his cost function remains around 8000\\
+    %    2) Outlying Degree Scoring, and
+%    3) Outlying Aspects Identification.
+(2) The difference between the actual value and the predicted value, we can clearly see that the difference between the actual value and the final actual value is about 46\\
+\begin{center}
+    \begin{minipage}{0.4\linewidth}
+    \centering
+    \begin{tikzfigure}
+    \includegraphics[width=0.9\textwidth]{logos/1 (1).eps}
+   
+    {\small{Flag.1}}
+    \end{tikzfigure}%
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\linewidth}
+        \centering
+        \begin{tikzfigure}
+        \includegraphics[width=0.9\textwidth]{logos/1 (2).eps}
+       
+        {\small{Flag.1}}
+        \end{tikzfigure}%
+        \end{minipage}
+        \hfill
+\end{center}
+\item[Forecast:]
+We input the test data into the model and test the model to give the predicted value of movie evaluation
+\begin{center}
+    \begin{minipage}{0.4\linewidth}
+    \centering
+    \begin{tikzfigure}
+    \includegraphics[width=0.9\textwidth]{logos/1 (3).eps}
+    {\small{Flag.1}}
+    \end{tikzfigure}%
+    \end{minipage}
+    \hfill
+  
+\end{center}
+}
+
+% Second column - second block
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\block[titlewidthscale=1, bodywidthscale=1]
+{Conclusion}
+{
+    This paper combines deep learning with practice and application to solve the prediction value of profit demanded by the film industry. In our experiment, we compare each factor, compare it with the film profit factor, and make corresponding image display. And we use the neural network related knowledge design model structure, training, get a good result, from the final experimental results, the cost function is small to 8000, the square difference between the predicted value and the actual value is about 46, the effect is also good. In the future, we plan to use multi task learning to improve the method and improve the accuracy of prediction.
+}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+% Bottomblock
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+\colorlet{notebgcolor}{blue!20}
+\colorlet{notefrcolor}{blue!20}
+\note[targetoffsetx=8cm, targetoffsety=-4cm, angle=30, rotate=15,
+radius=2cm, width=.26\textwidth]{
+Acknowledgement
+\begin{itemize}
+    \item
+    International Cooperation Project (Y7Z0511101)
+    of IIE,
+    Chinese Academy of Sciences
+ \end{itemize}
+}
+
+%\note[targetoffsetx=8cm, targetoffsety=-10cm,rotate=0,angle=180,radius=8cm,width=.46\textwidth,innersep=.1cm]{
+%Acknowledgement
+%}
+
+%\block[titlewidthscale=0.9, bodywidthscale=0.9]
+%{Acknowledgement}{
+%}
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+\end{columns}
+
+
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+%[titleleft, titleoffsetx=2em, titleoffsety=1em, bodyoffsetx=2em,%
+%roundedcorners=10, linewidth=0mm, titlewidthscale=0.7,%
+%bodywidthscale=0.9, titlecenter]
+
+%\colorlet{noteframecolor}{blue!20}
+% \colorlet{notebgcolor}{blue!20}
+% \colorlet{notefrcolor}{blue!20}
+% \note[targetoffsetx=-13cm, targetoffsety=-12cm,rotate=0,angle=180,radius=8cm,width=.96\textwidth,innersep=.4cm]
+% {
+% \begin{minipage}{0.3\linewidth}
+% \centering
+% \includegraphics[width=24cm]{logos/tulip-wordmark.eps}
+% \end{minipage}
+% \begin{minipage}{0.7\linewidth}
+% { \centering
+%  The $11^{th}$ International Conference on Knowledge Science,
+%   Engineering and Management (KSEM 2018),
+%   17-19/08/2018, Changchun, China
+% }
+% \end{minipage}
+% }
+%%%%%%%%%% -------------------------------------------------------------------- %%%%%%%%%%
+
+
+\end{document}
+
+%\endinput
+%%
+%% End of file `tikzposter-template.tex'.
